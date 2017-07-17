@@ -1,0 +1,18 @@
+{
+  "name": "manual_core_patch",
+  "version": "1.0.0",
+  "description": "Core patches on a Pantheon site with an upstream",
+  "bin": {
+    "install_module_dependencies": "./index.js"
+  },
+  "author": "ahebrank",
+  "license": "MIT",
+  "homepage": "https://github.com/ahebrank/manual_core_patch",
+  "repository": "ahebrank/manual_core_patch",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "minimist": "^1.2.0",
+    "tmp": "0.0.31",
+    "wget": "0.0.1"
+  }
+}
