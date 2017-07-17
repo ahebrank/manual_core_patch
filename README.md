@@ -5,4 +5,4 @@ way for deployment on Pantheon. It grabs composer patches applied to core and ma
 
 ## Usage:
 
-`manual_core_patch --root=/tmp/build`
+`manual_core_patch --src_root ~/sites/mysite --apply_root /tmp/build`
