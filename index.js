@@ -6,15 +6,15 @@ var wget = require('wget');
 var fs = require('fs');
 var tmp = require('tmp');
 
-if ('src_root' in argv) {
-  var src_root = argv.src_root;
+if ('composer' in argv) {
+  var composer = argv.composer;
 } else {
-  throw new Error('Need project source root --src_root specified (directory with project composer.json).');
+  throw new Error('Need project composer.json).');
 }
-if ('apply_root' in argv) {
-  var apply_root = argv.apply_root;
+if ('webroot' in argv) {
+  var webroot = argv.webroot;
 } else {
-  throw new Error('Need project apply webroot --apply_root specified (directory with project composer.json).');
+  throw new Error('Need project apply webroot --webroot specified (build webroot).');
 }
 
 function findCorePatches(json) {
@@ -26,7 +26,7 @@ function findCorePatches(json) {
 
 function applyPatch(patch_fn) {
   var cmd = 'patch -p1 < ' + patch_fn;
-  exec(cmd, { cwd: apply_root }, (error, stdout, stderr) => {
+  exec(cmd, { cwd: webroot }, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
       return;
@@ -36,8 +36,7 @@ function applyPatch(patch_fn) {
   });
 }
 
-var composer_fn = src_root + '/composer.json';
-var json = JSON.parse(fs.readFileSync(composer_fn, 'utf8'));
+var json = JSON.parse(fs.readFileSync(composer, 'utf8'));
 var core_patches = findCorePatches(json);
 var patch, output;
 if (core_patches) {

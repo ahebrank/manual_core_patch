@@ -1,9 +1,9 @@
 {
   "name": "manual_core_patch",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Core patches on a Pantheon site with an upstream",
   "bin": {
-    "install_module_dependencies": "./index.js"
+    "manual_core_patch": "./index.js"
   },
   "author": "ahebrank",
   "license": "MIT",
