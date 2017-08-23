@@ -28,11 +28,11 @@ function applyPatch(patch_fn) {
   var cmd = 'patch -p1 < ' + patch_fn;
   exec(cmd, { cwd: webroot }, function(error, stdout, stderr) {
     if (error) {
-      console.error('Patch could not be applied: ${error}');
+      console.error('Patch could not be applied: ' + error);
       return;
     }
-    console.log('stdout: ${stdout}');
-    console.log('stderr: ${stderr}');
+    console.log('stdout: ' + stdout);
+    console.log('stderr: ' + stderr);
   });
 }
 
