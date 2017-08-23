@@ -1,6 +1,6 @@
 {
   "name": "manual_core_patch",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Core patches on a Pantheon site with an upstream",
   "bin": {
     "manual_core_patch": "./index.js"

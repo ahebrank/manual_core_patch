@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const exec = require('child_process').exec;
+var exec = require('child_process').exec;
 var argv = require('minimist')(process.argv.slice(2));
 var wget = require('wget');
 var fs = require('fs');
@@ -26,13 +26,13 @@ function findCorePatches(json) {
 
 function applyPatch(patch_fn) {
   var cmd = 'patch -p1 < ' + patch_fn;
-  exec(cmd, { cwd: webroot }, (error, stdout, stderr) => {
+  exec(cmd, { cwd: webroot }, function(error, stdout, stderr) {
     if (error) {
-      console.error(`exec error: ${error}`);
+      console.error('Patch could not be applied: ${error}');
       return;
     }
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
+    console.log('stdout: ${stdout}');
+    console.log('stderr: ${stderr}');
   });
 }
 
