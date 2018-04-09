@@ -25,7 +25,7 @@ function findCorePatches(json) {
 }
 
 function applyPatch(patch_fn) {
-  var cmd = 'patch -p1 < ' + patch_fn;
+  var cmd = 'patch -p1 -N < ' + patch_fn;
   exec(cmd, { cwd: webroot }, function(error, stdout, stderr) {
     if (error) {
       console.error('Patch could not be applied: ' + error);
